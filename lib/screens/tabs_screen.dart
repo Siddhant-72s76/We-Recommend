@@ -4,6 +4,8 @@ import 'package:we_recommend/screens/games_screen.dart';
 import 'package:we_recommend/screens/home_screen.dart';
 import 'package:we_recommend/screens/movies_screen.dart';
 import 'package:we_recommend/screens/music_screen.dart';
+import 'package:we_recommend/screens/profile_screen.dart';
+import 'package:we_recommend/widgets/my_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -43,7 +45,28 @@ class _TabsScreenState extends State<TabsScreen> {
         title: Text(
           _pagesTitles[_selectedPageIndex],
         ),
+        // backgroundColor: Color.fromARGB(255, 200, 221, 238),
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(30),
+          ),
+        ),
+        actions: [
+          InkWell(
+            onTap: () =>
+                Navigator.of(context).pushNamed(ProfileScreen.routeName),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFieSUyMGNhdHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80'),
+            ),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+        ],
       ),
+      drawer: MyDrawer(),
       body: _pages[_selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
