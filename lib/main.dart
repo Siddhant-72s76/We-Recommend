@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:we_recommend/screens/about_us_screen.dart';
 import 'package:we_recommend/screens/help_screen.dart';
@@ -5,7 +6,9 @@ import 'package:we_recommend/screens/profile_screen.dart';
 import 'package:we_recommend/screens/setting_screen.dart';
 import 'package:we_recommend/screens/tabs_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -25,11 +28,11 @@ class MyApp extends StatelessWidget {
       // home: TabsScreen(),
       initialRoute: '/',
       routes: {
-        '/': (context) => TabsScreen(),
-        SettingScreen.routeName: (context) => SettingScreen(),
-        HelpScreen.routeName: (context) => HelpScreen(),
-        AboutUsScreen.routeName: (context) => AboutUsScreen(),
-        ProfileScreen.routeName: (context) => ProfileScreen(),
+        '/': (context) => const TabsScreen(),
+        SettingScreen.routeName: (context) => const SettingScreen(),
+        HelpScreen.routeName: (context) => const HelpScreen(),
+        AboutUsScreen.routeName: (context) => const AboutUsScreen(),
+        ProfileScreen.routeName: (context) => const ProfileScreen(),
       },
     );
   }

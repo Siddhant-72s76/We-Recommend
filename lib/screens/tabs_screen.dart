@@ -47,7 +47,7 @@ class _TabsScreenState extends State<TabsScreen> {
         ),
         // backgroundColor: Color.fromARGB(255, 200, 221, 238),
         elevation: 2,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),
           ),
@@ -56,7 +56,7 @@ class _TabsScreenState extends State<TabsScreen> {
           InkWell(
             onTap: () =>
                 Navigator.of(context).pushNamed(ProfileScreen.routeName),
-            child: CircleAvatar(
+            child: const CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFieSUyMGNhdHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80'),
             ),
@@ -66,7 +66,7 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
         ],
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       body: _pages[_selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
@@ -74,7 +74,7 @@ class _TabsScreenState extends State<TabsScreen> {
         unselectedItemColor: Colors.white,
         selectedItemColor: Colors.amber,
         currentIndex: _selectedPageIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             backgroundColor: Colors.pink,
             icon: Icon(Icons.home),

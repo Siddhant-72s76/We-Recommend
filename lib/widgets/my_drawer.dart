@@ -16,8 +16,8 @@ class MyDrawer extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
-            color: Color.fromARGB(255, 7, 218, 255),
-            child: Text(
+            color: const Color.fromARGB(255, 7, 218, 255),
+            child: const Text(
               'Try Me!',
               style: TextStyle(
                 fontWeight: FontWeight.w900,
@@ -26,11 +26,11 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.settings,
               size: 26,
             ),
-            title: Text(
+            title: const Text(
               'Settings',
               style: TextStyle(
                 fontSize: 24,
@@ -41,11 +41,11 @@ class MyDrawer extends StatelessWidget {
                 Navigator.of(context).pushNamed(SettingScreen.routeName),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.help,
               size: 26,
             ),
-            title: Text(
+            title: const Text(
               'Help',
               style: TextStyle(
                 fontSize: 24,
@@ -55,11 +55,11 @@ class MyDrawer extends StatelessWidget {
             onTap: () => Navigator.of(context).pushNamed(HelpScreen.routeName),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.info,
               size: 26,
             ),
-            title: Text(
+            title: const Text(
               'About Us',
               style: TextStyle(
                 fontSize: 24,
