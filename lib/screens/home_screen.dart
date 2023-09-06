@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:we_recommend/widgets/my_carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,41 +38,21 @@ class _HomeScreenState extends State<HomeScreen> {
           'https://www.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg',
     },
   ];
-  final CarouselController carouselController = CarouselController();
-  int currentIndex = 0;
+  // // final CarouselController carouselController = CarouselController();
+  // int currentIndex = 0;
 
-  void swapSlide(index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
+  // void swapSlide(index) {
+  //   setState(() {
+  //     currentIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          InkWell(
-            child: CarouselSlider(
-              items: carouselItems
-                  .map(
-                    (item) => Image.network(
-                      item['imageUrl'],
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                    ),
-                  )
-                  .toList(),
-              carouselController: carouselController,
-              options: CarouselOptions(
-                height: 200,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: false,
-                autoPlay: true,
-                onPageChanged: (index, reason) => swapSlide,
-              ),
-            ),
-          ),
+          MyCarouselSlider(carouselItems: carouselItems),
         ],
       ),
     );
