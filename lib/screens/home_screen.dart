@@ -51,55 +51,26 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Stack(
-            children: [
-              InkWell(
-                child: CarouselSlider(
-                  items: carouselItems
-                      .map(
-                        (item) => Image.network(
-                          item['imageUrl'],
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                        ),
-                      )
-                      .toList(),
-                  carouselController: carouselController,
-                  options: CarouselOptions(
-                    scrollPhysics: const BouncingScrollPhysics(),
-                    autoPlay: true,
-                    aspectRatio: 2,
-                    viewportFraction: 1,
-                    onPageChanged: (index, reason) => swapSlide,
-                  ),
-                ),
+          InkWell(
+            child: CarouselSlider(
+              items: carouselItems
+                  .map(
+                    (item) => Image.network(
+                      item['imageUrl'],
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
+                  )
+                  .toList(),
+              carouselController: carouselController,
+              options: CarouselOptions(
+                height: 200,
+                enlargeCenterPage: true,
+                enableInfiniteScroll: false,
+                autoPlay: true,
+                onPageChanged: (index, reason) => swapSlide,
               ),
-              Positioned(
-                bottom: 10,
-                left: 0,
-                right: 0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: carouselItems.asMap().entries.map((entry) {
-                    return GestureDetector(
-                      onTap: () => carouselController.animateToPage(entry.key),
-                      child: Container(
-                        width: currentIndex == entry.key ? 17 : 7,
-                        height: 7.0,
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 3.0,
-                        ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: currentIndex == entry.key
-                                ? Colors.red
-                                : Colors.teal),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),
